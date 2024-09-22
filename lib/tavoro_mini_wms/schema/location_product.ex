@@ -4,7 +4,7 @@ defmodule TavoroMiniWms.LocationProduct do
 
   @primary_key false
   schema "location_products" do
-    field :count, :integer
+    field :count, :integer, default: 0
 
     belongs_to :location, TavoroMiniWms.Location
     belongs_to :product, TavoroMiniWms.Product
