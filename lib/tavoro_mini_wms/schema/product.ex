@@ -7,6 +7,8 @@ defmodule TavoroMiniWms.Product do
     field :sku, :string
     field :price, :decimal
 
+    many_to_many :locations, TavoroMiniWms.Location, join_through: TavoroMiniWms.LocationProduct
+
     timestamps()
   end
 

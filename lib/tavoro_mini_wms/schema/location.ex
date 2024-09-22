@@ -5,6 +5,8 @@ defmodule TavoroMiniWms.Location do
   schema "locations" do
     field :name, :string
 
+    many_to_many :products, TavoroMiniWms.Product, join_through: TavoroMiniWms.LocationProduct
+
     timestamps()
   end
 
