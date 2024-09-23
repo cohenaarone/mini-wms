@@ -22,5 +22,6 @@ defmodule TavoroMiniWms.LocationProduct do
     |> cast(attrs, [:count, :product_id, :location_id])
     |> validate_required([:count, :product_id, :location_id])
     |> validate_number(:count, greater_than_or_equal_to: 0)
+    |> unique_constraint([:product_id, :location_id])
   end
 end

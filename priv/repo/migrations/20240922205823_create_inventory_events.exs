@@ -12,6 +12,6 @@ defmodule TavoroMiniWms.Repo.Migrations.CreateInventoryEvents do
     end
 
     create index(:inventory_events, [:location_id])
-    create unique_index(:inventory_events, [:product_id, :location_id])
+    create index(:inventory_events, [:product_id])
   end
 end

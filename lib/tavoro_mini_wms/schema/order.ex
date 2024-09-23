@@ -20,6 +20,6 @@ defmodule TavoroMiniWms.Order do
     order
     |> cast(attrs, [:status, :customer_id])
     |> validate_required([:status, :customer_id])
-    |> validate_subset(:status, ~w[pending fulfilled])
+    |> validate_inclusion(:status, ~w[pending fulfilled])
   end
 end

@@ -23,6 +23,6 @@ defmodule TavoroMiniWms.InventoryEvent do
     |> cast(attrs, [:change_count, :event, :product_id, :location_id])
     |> validate_required([:change_count, :event, :product_id, :location_id])
     |> validate_number(:count, not_equal_to: 0)
-    |> validate_subset(:event, ~w[added moved removed])
+    |> validate_inclusion(:event, ~w[added moved removed])
   end
 end

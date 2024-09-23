@@ -18,8 +18,9 @@ defmodule TavoroMiniWms.LineItem do
 
   def changeset(line_item, attrs) do
     line_item
-    |> cast(attrs, [:count, :customer_id, :product_id])
-    |> validate_required([:count, :customer_id, :product_id])
+    |> cast(attrs, [:count, :order_id, :product_id])
+    |> validate_required([:count, :order_id, :product_id])
     |> validate_number(:count, greater_than: 0)
+    |> unique_constraint([:order_id, :product_id])
   end
 end
