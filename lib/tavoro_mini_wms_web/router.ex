@@ -35,6 +35,17 @@ defmodule TavoroMiniWmsWeb.Router do
     put "/locations/:id", LocationController, :update
     post "/locations", LocationController, :create
     delete "/locations/:id", LocationController, :delete
+
+    get "/locations/:location_id/products/:id", InventoryController, :show # query inventory history
+    post "/locations/:location_id/products/:id", InventoryController, :create # receive inventory
+    put "/locations/:location_id/products/:id", InventoryController, :update # move inventory - :location_id is source location
+
+    get "/orders", OrderController, :index # list orders
+    post "/orders", OrderController, :create # create orders
+    put "/orders/:id", OrderController, :update # fulfill order
+
+    # Or, add when creating the order?  Gotta figure out how to send associations ...
+    # post "/orders/:id/line_items/", LineItemController, :create # create line item for order
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development

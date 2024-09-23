@@ -24,6 +24,8 @@ defmodule TavoroMiniWms.Repo.Migrations.AddOrderTables do
       add :count, :integer, null: false
       add :order_id, references(:orders), null: false
       add :product_id, references(:products), null: false
+
+      timestamps()
     end
 
     create unique_index(:line_items, [:order_id, :product_id])

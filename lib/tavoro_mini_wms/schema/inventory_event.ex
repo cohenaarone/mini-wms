@@ -21,8 +21,9 @@ defmodule TavoroMiniWms.InventoryEvent do
   def changeset(inventory_event, attrs) do
     inventory_event
     |> cast(attrs, [:change_count, :event, :product_id, :location_id])
+    # Add validation that added & moved_to are positive ints, and the other 2 are negative ints
     |> validate_required([:change_count, :event, :product_id, :location_id])
     |> validate_number(:count, not_equal_to: 0)
-    |> validate_inclusion(:event, ~w[added moved removed])
+    |> validate_inclusion(:event, ~w[added moved_from moved_to removed])
   end
 end
